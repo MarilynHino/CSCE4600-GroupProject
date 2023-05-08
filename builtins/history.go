@@ -5,9 +5,8 @@ import "fmt"
 // create a static variable to hold the history
 var history []string
 
-func SaveHistory(args ...string ) error {
+func SaveHistory(args ...string) {
 	history = append(history, args...)
-	return nil
 }
 
 func PrintHistory() error {
