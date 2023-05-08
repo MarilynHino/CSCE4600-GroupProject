@@ -70,7 +70,8 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 	// Split the input separate the command name and the command arguments.
 	args := strings.Split(input, " ")
 	name, args := args[0], args[1:]
-
+	// save the command to history
+	builtins.SaveHistory(input)
 	// Check for built-in commands.
 	// New builtin commands should be added here. Eventually this should be refactored to its own func.
 	switch name {
