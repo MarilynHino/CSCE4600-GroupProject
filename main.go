@@ -88,6 +88,8 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 		return nil
 	case "history":
 		return builtins.PrintHistory()
+	case "exec":
+		return built.ExecCommand()
 	}
 
 	return executeCommand(name, args...)
