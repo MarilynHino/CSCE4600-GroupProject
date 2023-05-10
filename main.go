@@ -90,6 +90,10 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 		return builtins.PrintHistory()
 	case "exec":
 		return built.ExecCommand()
+	case "type":
+		return builtins.TypeCommand(args...)
+	case "shift":
+		return builtins.ShiftCommand(&args, args...)
 	}
 
 	return executeCommand(name, args...)
